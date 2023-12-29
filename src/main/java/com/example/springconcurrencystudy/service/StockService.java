@@ -23,6 +23,15 @@ public class StockService {
         repository.saveAndFlush(stock);
     }
 
+    // synchronized 키워드를 이용하면 한 스레드만이 하나의 공유자원에 접근하도록 합니다.
+    // 여기선 thread가 순차적으로 decrease 메서드를 실행하게 합니다
+//    @Transactional
+    public synchronized void decreaseSync(Long id, Long quantity){
+        Stock stock = repository.findById(id).orElseThrow();
+        stock.decrease(quantity);
+        repository.saveAndFlush(stock);
+    }
+
 
 
 
