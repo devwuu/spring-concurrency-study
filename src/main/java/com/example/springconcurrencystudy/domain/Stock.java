@@ -1,9 +1,6 @@
 package com.example.springconcurrencystudy.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Stock {
@@ -12,6 +9,9 @@ public class Stock {
     private Long id;
     private Long productId;
     private Long quantity;
+
+    @Version // 낙관적 락 적용
+    private Long version;
 
     public Stock() {
     }
