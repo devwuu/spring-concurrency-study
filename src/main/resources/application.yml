@@ -5,6 +5,8 @@ spring:
     password: test
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/stock
+    hikari:
+      maximum-pool-size: 40 # 커넥션 풀 사이즈 변경
   jpa:
     hibernate:
       ddl-auto: create
