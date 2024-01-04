@@ -44,7 +44,7 @@ public class RedisLockRepository{
                 .opsForValue()
                 .setIfAbsent(generateKey(key), "lock", Duration.ofMillis(3_000));
         // redis 에 key를 key로 하여 lock이라는 value를 저장한다
-        // 3000ms 동안 실패하면 time out 된다
+        // timeout = TTL
         // 값이 정상적으로 저장된다면 true ( lock 획득 성공)
         // 값이 정상적으로 저장되지 않는다면 false ( lock 획득 실패)
     }
